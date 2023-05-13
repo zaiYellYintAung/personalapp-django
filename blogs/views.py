@@ -44,6 +44,16 @@ def edit(request,pk):
 	}
 	return render(request,template,data)
 
+def delete(request,pk):
+	template="blogs/delete.html"
+
+	if request.method=='DELETE':
+		pass
+	data={
+		
+	}
+	return render(request,template,data)
+
 def show(request,pk):
 	template="blogs/blog-detail.html"
 	blog=Blogs.objects.get(id=pk)

@@ -16,5 +16,5 @@
 	{% endfor %}
 			<br>
 			<a href="{% url 'edit-blog' blog.id %}">Edit</a>
-			<a href="{% url 'blog-detail' blog.id %}">Delete</a>
+			<a href="{% url 'delete-blog' blog.id %}">Delete</a>
 {% endblock %}

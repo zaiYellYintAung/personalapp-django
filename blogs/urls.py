@@ -6,5 +6,7 @@ urlpatterns=[
 	path('create-blogs/',views.create,name="create-blog"),
 	path('blog/<str:pk>',views.show,name="blog-detail"),
 	path('edit-blog/<str:pk>',views.edit,name="edit-blog"),
+	path('delete-blog/<str:pk>',views.delete,name="delete-blog"),
+
 
 	]

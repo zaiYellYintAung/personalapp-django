@@ -2,5 +2,13 @@
 
 {% block yield %}
 	<h1>Projects</h1>
+	{% for project in projects %}
+	<h3>{{ project.title }}</h3>
+	<p> {{ project.body | truncatewords:50}}</p>
+	<p> Created at {{project.date}} | <a href="{% url 'project' project.id %}">Details</a></p>
 
+	<br>
+	
+{% endfor %}
 {% endblock %}
+

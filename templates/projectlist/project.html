@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block yield %}
+	<h2>{{project.title}}</h2>
+	<p> Finished at {{project.date}} | <a href="{{project.links}}">Git hub link</a></p>
+
+	<p>{{project.body}}</p>
+
+
+<div>
+	<h4>Contributers</h4>
+	{% for contri in project.contributers.all %}
+	{{contri.name}} |
+	{% empty %}
+	<p>No data yet</p>
+	{% endfor %}
+</div>
+
+{% endblock %}

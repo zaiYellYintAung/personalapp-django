@@ -3,13 +3,20 @@ from .models import *
 # Create your views here.
 def projects(request):
 	template="projectlist/projects.html"
-	data={}
+	projects=Projects.objects.all()
+	data={
+		'projects':projects
+	}
 	return render(request,template,data)
 
 
 def project(request,pk):
 	template="projectlist/project.html"
-	data={}
+	project=Projects.objects.get(id=pk)
+
+	data={
+		'project':project
+	}
 	return render(request,template,data)
 
 def create(request):

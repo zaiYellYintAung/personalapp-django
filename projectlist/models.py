@@ -15,3 +15,6 @@ class Projects(models.Model):
 	tags=models.ManyToManyField(Tags)
 	date=models.DateField()
 	contributers=models.ManyToManyField(Friends)
+
+	def __str__(self):
+		return f"{self.title}"

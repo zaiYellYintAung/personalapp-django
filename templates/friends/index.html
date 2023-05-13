@@ -1,5 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block yield %}
-	<h1>Friends</h1>
+	{% for friend in friends %}
+	<h3>{{ friend.name }}</h3>
+	<p>Relation: {{ friend.relation}}</p>
+
+	<p>Description: {{ friend.description |default_if_none:"No description"}}</p>
+
+	<p>Profile Link :{{ friend.profilelink|urlize|default_if_none:"No data" }}</p>
+
+	<p>Gmail :{{ friend.email |urlize|default_if_none:"No data from him"}}</p>
+	<br>
+	{% endfor %}
 {% endblock %}
