@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block yield %}
+	<h3>{{blog.title}}</h3>
+
+	<!-- dr ko nyr bat kat -->
+	<p>Created :{{blog.created | timesince }} ago | {{blog.body | wordcount }} words</p>
+
+	<p>{{blog.body| linebreaks}}</p>
+
+	
+	{% for topic in blog.topic.all %}
+	{{topic.name}}
+	{% empty %}
+	<p>No topics chosen</p>
+	{% endfor %}
+			<br>
+			<a href="{% url 'edit-blog' blog.id %}">Edit</a>
+			<a href="{% url 'blog-detail' blog.id %}">Delete</a>
+{% endblock %}
