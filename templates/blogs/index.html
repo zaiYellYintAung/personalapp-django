@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block yield %}
+	<h1>Blogs</h1>
+	{% for blog in blogs %}
+		<h4>{{blog.title | title}}</h4>
+		<p>{{blog.body | truncatewords:20}}</p>
+		<p>Created :{{blog.created | timesince }} ago | {{blog.body | wordcount }}</p>
+
+	{% empty %}
+
+
+	{% endfor %}
+
+{% endblock %}
