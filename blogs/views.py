@@ -30,17 +30,18 @@ def create(request):
 
 def edit(request,pk):
 	template="blogs/edit.html"
-	blog_form=BlogForm()
+	project=Blogs.objects.get(id=pk)
+	form=BlogForm(instance=project)
 
 	if request.method=='POST':
-		form=BlogForm(request.POST)
+		form =BlogForm(request.POST,instance=project)
 
 		if form.is_valid():
 			form.save()
 			return redirect('blogs')
 
 	data={
-		'blog_form':blog_form
+		'blog_form':form
 	}
 	return render(request,template,data)
 
